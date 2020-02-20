@@ -1,6 +1,21 @@
+
 <h2>All Historical Landmarks</h2>
 
 <!-- add content here -->
-
+<table id="nyc">
+<th>№</th>
+<th>Landmark</th>
+<th>Year</th>
+<% @landmarks.each_with_index { |landmark, index|%>
+  <tr>
+    <td><%=index+1%></td>
+    <td><a href = "/landmarks/<%=landmark.id%>"><%=landmark.name%></a></td>
+    <td><%=landmark.year_completed%></td>
+  </tr>
+<%}%>
+</table>
+<br>
+<br>
+<br>
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>
