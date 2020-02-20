@@ -1,25 +1,25 @@
 class FiguresController < ApplicationController
   set :views, 'app/views/landmarks'
   register Sinatra::Twitter::Bootstrap::Assets
-  set :methot_override, true
+  set :method_override, true
 
-  get '/landmarks' do
-    @landmarks = Landmark.all
+  get '/figures' do
+    @figures = Figure.all
     erb :index
   end
 
-  get '/landmarks/new' do
+  get '/figures/new' do
     @figures = Figure.all
     erb :new
   end
 
-  post '/landmarks/new' do
-    Landmark.create(year_completed: params[:landmark_year_completed], name: params[:landmark_name], figure_id: params[:figure_id])
-    redirect '/landmarks'
+  post '/figures/new' do
+    Figure.create(name: params[:figure_name])
+    redirect '/figure'
   end
 
-  get '/landmarks/:id' do
-    @landmark = current_landmark
+  get '/figures/:id' do
+    @figures = current_figure
 
     erb :show
   end
