@@ -1,0 +1,23 @@
+<h1> Figure Info</h1>
+
+<table id="nyc">
+  <tr>
+    <th>Name</th>
+
+  </tr>
+  <tr>
+    <td><%= @figure.name %></td>
+
+  </tr>
+<table>
+<br>
+<br>
+<br>
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<br>
+<a class="button" href="/figures">figures</a>
+<br>
+<form action="/figures/<%=@figure.id%>" method="post">
+  <input type="hidden" name="_method" value = "delete">
+  <input type = "submit" value="Delete">
+</form>

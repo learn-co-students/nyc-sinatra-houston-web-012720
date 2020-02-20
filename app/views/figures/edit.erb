@@ -1,0 +1,22 @@
+<h2>Edit <%=@figure.name%></h2>
+
+<!-- add content here -->
+<form action= "/figures/<%=@figure.id%>/edit" method="post">
+  <input type = "hidden" name= "_method" value = "patch">
+  <label>Name:</label>
+  <input type = "text" name="name" placeholder="<%=@figure.name%>"/>
+  <!-- figure[name] figure[year_completed]-->
+  <label>Landmarks:</label>
+
+    <%@landmarks.each { |landmark| %>
+    <input type="checkbox" name="landmarks[]" value = "<%=landmark.id%>"/> <label>%=landmark.name%></label> 
+
+    <%}%>
+  </select>
+ 
+ 
+  <input type = "submit" name= "Edit figure"/>
+</form>
+
+<a class="button" href="/figures">figures</a>
+<a class="button" href="/">Home</a>

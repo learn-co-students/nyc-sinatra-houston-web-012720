@@ -13,35 +13,45 @@ class FiguresController < ApplicationController
     erb :new
   end
 
-  post '/landmarks/new' do
-    Landmark.create(year_completed: params[:landmark_year_completed], name: params[:landmark_name], figure_id: params[:figure_id])
-    redirect '/landmarks'
+  post '/figures/new' do
+    Figure.create(name: params[:figure_name])
+    if params[:landmarks]
+      params[:landmarks].each{ |landmark_id|
+        Landmark.find(landmark_id).update(figure_id: params[:id])
+      }
+    end
+    redirect '/figures'
   end
 
-  get '/landmarks/:id' do
-    @landmark = current_landmark
+  get '/figures/:id' do
+    @figure = current_figure
 
     erb :show
   end
 
-  get '/landmarks/:id/edit' do
-    @landmark = current_landmark
-    @figures = Figure.all
+  get '/figures/:id/edit' do
+    @figure = current_figure
+    @landmarks = Landmark.all
     erb :edit
   end
 
-  patch '/landmarks/:id/edit' do
+  patch '/figures/:id/edit' do
     
-    current_landmark.update(year_completed: params[:year_completed], name: params[:name], figure_id: params[:figure_id])
-    redirect "/landmarks/#{params[:id]}"
+    current_figure.update(name: params[:name])
+    if params[:landmarks]
+      params[:landmarks].each{ |landmark_id|
+        Landmark.find(landmark_id).update(figure_id: params[:id])
+      }
+    end
+    redirect "/figures/#{params[:id]}"
   end
 
-  delete '/landmarks/:id' do
-    current_landmark.delete
-    redirect '/landmarks'
+  delete '/figures/:id' do
+    current_figure.delete
+    redirect '/figures'
   end
 
-  def current_landmark
-    Landmark.find(params[:id])
+  def current_figure
+    Figure.find(params[:id])
   end
 end
