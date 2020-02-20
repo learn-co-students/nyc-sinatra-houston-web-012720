@@ -4,9 +4,11 @@
   <tr>
     <th>Name</th>
 
+    <!--<th>Year Completed</th>-->
   </tr>
   <tr>
     <td><%= @figure.name %></td>
+    <!--<td><%= @landmark.year_completed %></td>-->
 
   </tr>
 <table>
@@ -15,7 +17,9 @@
 <br>
 <a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
 <br>
-<a class="button" href="/figures">figures</a>
+
+<a class="button" href="/figures">Figures</a>
+
 <br>
 <form action="/figures/<%=@figure.id%>" method="post">
   <input type="hidden" name="_method" value = "delete">
