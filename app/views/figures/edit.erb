@@ -4,18 +4,20 @@
 <form action= "/figures/<%=@figure.id%>/edit" method="post">
   <input type = "hidden" name= "_method" value = "patch">
   <label>Name:</label>
-  <input type = "text" name="name" placeholder="<%=@figure.name%>"/>
-  <!-- figure[name] figure[year_completed]-->
-  <label>Landmarks:</label>
-
+  <input type = "text" name="figure_name" placeholder="<%=@figure.name%>"/>
+  <input type = "text" name="new_landmark" />
+  <!-- figure[title_ids]' figure[name] 
+  <br><label>Landmarks:</label><br>
+    <select name = "new_landmark">
     <%@landmarks.each { |landmark| %>
-    <input type="checkbox" name="landmarks[]" value = "<%=landmark.id%>"/> <label>%=landmark.name%></label> 
-
+    <option  value = <%=landmark.id%>><%=landmark.name%></option>
     <%}%>
   </select>
+-->
  
  
-  <input type = "submit" name= "Edit figure"/>
+ 
+  <input type = "submit" name= "Edit Figure"/>
 </form>
 
 <a class="button" href="/figures">figures</a>
