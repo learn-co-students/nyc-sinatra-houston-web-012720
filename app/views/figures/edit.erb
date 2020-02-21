@@ -1,6 +1,6 @@
-<h2>Edit Historical Landmark</h2>
+<h2>Edit Figure</h2>
 
-<form action='/landmarks/<%= @landmark.id %>', method='post'>
+<form action='/figures/<%= @figure.id %>', method='post'>
     <input type='hidden', name='_method', value='patch'>
     <label>Name: </label>
     <input type='text', name='name'>
@@ -8,5 +8,5 @@
     <input type='submit', value='Edit'>
 </form>    
 
-<a class="button" href="/landmarks">Landmarks</a>
+<a class="button" href="/figures">Figures</a>
 <a class="button" href="/">Home</a>

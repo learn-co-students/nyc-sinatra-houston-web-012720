@@ -1,3 +1,8 @@
+Title.destroy_all
+Figure.destroy_all
+FigureTitle.destroy_all
+Landmark.destroy_all
+
 landmarks_list = {
     "Madison Square Guarden" => {
       :year_completed => 1901
