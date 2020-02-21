@@ -1,0 +1,24 @@
+<h2>Edit <%=@figure.name%></h2>
+
+<!-- add content here -->
+<form action= "/figures/<%=@figure.id%>/edit" method="post">
+  <input type = "hidden" name= "_method" value = "patch">
+  <label>Name:</label>
+  <input type = "text" name="figure_name" placeholder="<%=@figure.name%>"/>
+  <input type = "text" name="new_landmark" />
+  <!-- figure[title_ids]' figure[name] 
+  <br><label>Landmarks:</label><br>
+    <select name = "new_landmark">
+    <%@landmarks.each { |landmark| %>
+    <option  value = <%=landmark.id%>><%=landmark.name%></option>
+    <%}%>
+  </select>
+-->
+ 
+ 
+ 
+  <input type = "submit" name= "Edit Figure"/>
+</form>
+
+<a class="button" href="/figures">figures</a>
+<a class="button" href="/">Home</a>

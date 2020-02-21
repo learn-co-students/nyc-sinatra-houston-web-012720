@@ -1,0 +1,24 @@
+<h2>Create New Figure</h2>
+
+<!-- add content here figure[name]  'figure[title_ids][]' figure[landmark_ids][] 'landmark[name]' 'title[name]'-->
+<form action= "/figures/new" method="post">
+  <label>Name:</label>
+  <input type = "text" name="figure_name">
+
+  <br><label>Landmarks:</label><br>
+    <%@landmarks.each { |landmark| %>
+    <input type="checkbox" name="landmark_<%=landmark.id%>" value = "<%=landmark.id%>"/> <label><%=landmark.name%></label> <br>
+    <%}%>
+
+      <br><label>Titles:</label><br>
+    <%@titles.each { |title| %>
+    <input type="checkbox" name="title_<%=title.id%>" value = "<%=title.id%>"/> <label><%=title.name%></label> <br>
+    <%}%>
+
+  <input type = "text" name="new_landmark" />
+  <input type = "text" name="new_title" />
+  <input type = "submit" value = "Create New Figure">
+</form>
+
+<a class="button" href="/figures">Figures</a>
+<a class="button" href="/">Home</a>

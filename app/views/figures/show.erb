@@ -1,0 +1,30 @@
+<h1> <%= @figure.name %> Info</h1>
+
+<table id="nyc">
+  <tr>
+    <th>Landmarks</th>
+
+    
+  </tr>
+    <%@figure.landmarks.each { |landmark| %>
+  <tr>
+
+    <td><%= landmark.name %></td>
+    
+
+  </tr>
+  <%}%>
+<table>
+<br>
+<br>
+<br>
+<a class="button" href="/figures/<%= @figure.id %>/edit">Edit Figure</a>
+<br>
+
+<a class="button" href="/figures">Figures</a>
+
+<br>
+<form action="/figures/<%=@figure.id%>" method="post">
+  <input type="hidden" name="_method" value = "delete">
+  <input type = "submit" value="Delete">
+</form>
