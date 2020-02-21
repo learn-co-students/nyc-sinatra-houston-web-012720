@@ -9,6 +9,8 @@ end
 
 use Rack::MethodOverride
 
+use ApplicationController
 use FiguresController
+# use HomeController
 use LandmarksController
 run ApplicationController

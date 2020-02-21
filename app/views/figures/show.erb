@@ -1,16 +1,19 @@
-<h1> Figure Info</h1>
+<h1> <%= @figure.name %> Info</h1>
 
 <table id="nyc">
   <tr>
-    <th>Name</th>
+    <th>Landmarks</th>
 
-    <!--<th>Year Completed</th>-->
+    
   </tr>
+    <%@figure.landmarks.each { |landmark| %>
   <tr>
-    <td><%= @figure.name %></td>
-    <!--<td><%= @landmark.year_completed %></td>-->
+
+    <td><%= landmark.name %></td>
+    
 
   </tr>
+  <%}%>
 <table>
 <br>
 <br>
