@@ -7,5 +7,10 @@ class LandmarksController < ApplicationController
     erb :index
   end
 
+  get "/landmarks/:id" do
+    @landmark = Landmark.find(params[:id])
+    erb :show
+  end
+
   
 end
