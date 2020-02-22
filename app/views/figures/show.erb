@@ -1,0 +1,18 @@
+<p> Single Figure information </p>
+
+<label>Name:</label>
+  <h4> <%= @figure.name %> </h4>
+
+<label>Titles:</label>
+<h4> <% @figure.titles.each do |title| %> </h4>
+  <a href="/titles/<%=title.id%>">
+  <li> <%= title.name %> </li>
+  </a>
+<% end %>
+
+<label>Landmarks:</label>
+<h4> <% @figure.landmarks.each do |landmark| %> </h4>
+  <a href="/landmarks/<%=landmark.id%>">
+  <li> <%= landmark.name %> </li>
+  </a>
+<% end %>
